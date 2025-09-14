@@ -1,0 +1,63 @@
+import mensajeria.*
+import empleados_m.*
+
+describe "Test de mensajeros primera parte " {
+	
+	test "Morfeo en camion con 1 acoplado pesa 90kg + 500kg "{
+	    assert.equals(590, morfeo.peso())
+}
+
+	test "Camion con 2 acoplados pesan 1000kg + 90kg"{
+		nabucodonosor.cantidad_acoplados(2)
+	    assert.equals(1090, morfeo.peso()) 
+}
+
+	test "monopatin pesa 1kg + "{
+        morfeo.transporte(monopatin)
+	    assert.equals(1, monopatin.peso())
+}
+
+	test "Morfeo en monopatin pesa 90kg + 1kg "{
+		morfeo.transporte(monopatin)
+	    assert.equals(91, morfeo.peso() )
+}
+
+	test "Morfeo anda en el Nabucodonosor"{
+	    assert.equals(morfeo.transporte(), nabucodonosor)
+}
+
+	test "el puente deja pasar un mensajero liviano"{
+	    assert.that(valentin_alsina.puede_llegar(morfeo))
+    }
+
+    test "el puente no deja pasar un mensajero pesado"{
+        nabucodonosor.cantidad_acoplados(3)
+	    assert.notThat(valentin_alsina.puede_llegar(morfeo))
+    }
+
+    test "un paquete estaPago"{
+		paquete.pagar()
+	    assert.that(paquete.esta_pago())
+    }
+
+    test "un paquete pago con destino a Alsina puede ser entregado por Morfeo en camion liviano"{
+		paquete.pagar()
+		paquete.lugares(valentin_alsina)
+	    assert.that(paquete.puede_ser_entregado(morfeo))
+    }
+
+    test "un paquete no pago no puede ser entregado por Morfeo"{
+	    assert.notThat(paquete.puede_ser_entregado(morfeo))
+    }
+
+	test "un paquete pago no puede entregado por Morfeo en camion de 3 acoplados"{
+		paquete.pagar()
+        nabucodonosor.cantidad_acoplados(3)
+	    assert.notThat(paquete.puede_ser_entregado(morfeo))
+    }
+}
+
+
+
+
+
