@@ -37,9 +37,19 @@ object neo {
     method puede_entregar() = paquete.lugares().puede_llegar(self)
 }
 
+//Pruebo agregando un nuevo empleado y chequear que todo funcione
+object agente_smith {
+    const peso_smith = 85
+    var property tiene_credito = true
+        
+    method peso() = peso_smith
+    method puedeLlamar() = tiene_credito
+    method puede_entregar() = paquete.lugares().puede_llegar(self)
+}
 
 
-//transportes
+
+//Transportes
 
 object monopatin {
 
@@ -55,8 +65,4 @@ object nabucodonosor {
 
 
 
-
-//**/
-//object puente {
-//}
 
